@@ -8,8 +8,8 @@ import cv2
 
 # construct the argument parse and parse the arguments
 ap = argparse.ArgumentParser()
-ap.add_argument("-i", "--image", required=True,
-  help="path to input image")
+# ap.add_argument("-i", "--image", required=True,
+#   help="path to input image")
 ap.add_argument("-p", "--pbtxt", default="kanji_output.pbtxt",
   help="path to Tensorflow 'deploy' pbtxt file")
 ap.add_argument("-m", "--model", default="frozen_inference_graph.pb",
@@ -30,7 +30,7 @@ net = cv2.dnn.readNetFromTensorflow(args["model"], args["pbtxt"])
 
 # load the input image and construct an input blob for the image
 # by resizing to a fixed 300x300 pixels and then swap RGB it
-image = cv2.imread("images/test4.png")
+image = cv2.imread("images/test8.png")
 (h, w) = image.shape[:2]
 
 blob = cv2.dnn.blobFromImage(image, size=(300, 300), swapRB=True, crop=False)
